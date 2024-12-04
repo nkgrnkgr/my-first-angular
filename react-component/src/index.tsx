@@ -5,7 +5,7 @@ import { EventListener } from "./EventListener";
 
 createRoot(document.getElementById("react-root")!).render(
   <StrictMode>
-    <div style={{marginTop: '100px'}}>
+    <div style={{ margin: "100px 20px", backgroundColor: 'skyblue' }}>
       <h1>This is React Component</h1>
       <Button />
       <EventListener />
