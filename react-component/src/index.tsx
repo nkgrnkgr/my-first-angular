@@ -1,9 +1,13 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { Button } from './Button';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { Button } from "./Button";
+import { EventListener } from "./EventListener";
 
-createRoot(document.getElementById('react-root')!).render(
+createRoot(document.getElementById("react-root")!).render(
   <StrictMode>
-    <Button />
+    <div>
+      <Button />
+      <EventListener />
+    </div>
   </StrictMode>
 );

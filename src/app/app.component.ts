@@ -5,8 +5,13 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'my-1st-angular';
+  handleClickButton() {
+    console.log('called');
+    const event = new CustomEvent('react-event');
+    document.dispatchEvent(event);
+  }
 }
