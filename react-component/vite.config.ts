@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   define: { "process.env.NODE_ENV": '"production"' },
   build: {
+    watch: {},
     lib: {
       entry: resolve(__dirname, "src/index.tsx"),
       name: "react-component-lib",
