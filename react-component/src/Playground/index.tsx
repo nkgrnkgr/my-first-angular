@@ -39,9 +39,35 @@ type Props = {
 };
 
 function DragItem({ coordinate: { x, y } }: Props) {
+  const [open, setOpen] = useState(true);
   return (
-    <Draggable x={x} y={y}>
-      <div className={styles.square}>Drag Me</div>
-    </Draggable>
+    <>
+      <Draggable x={x} y={y}>
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+        {/* biome-ignore lint/a11y/useFocusableInteractive: <explanation> */}
+        <div
+          // biome-ignore lint/a11y/useSemanticElements: <explanation>
+          role="button"
+          onMouseDown={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.preventDefault();
+            alert("button clicked");
+            setOpen(true);
+          }}
+          className={styles.square}
+        >
+          Drag Me2
+        </div>
+        {open && <ChatWindow />}
+      </Draggable>
+    </>
+  );
+}
+
+function ChatWindow() {
+  return (
+    <div className={styles.chat}>
+      <div>this is ChatWindow</div>
+    </div>
   );
 }

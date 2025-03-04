@@ -19,14 +19,11 @@ export function Draggable({ children, x, y }: Props) {
   };
 
   return (
-    <button
-      ref={setNodeRef}
-      style={style}
-      {...listeners}
-      {...attributes}
-      className={styles.dragItem}
-    >
+    <div ref={setNodeRef} style={style} className={styles.dragItem}>
+      <button type="button" {...listeners} {...attributes}>
+        handle
+      </button>
       {children}
-    </button>
+    </div>
   );
 }

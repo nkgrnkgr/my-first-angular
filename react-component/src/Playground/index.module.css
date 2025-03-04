@@ -7,4 +7,17 @@
   background-color: blueviolet;
   margin: 0;
   padding: 0;
+  z-index: 999999;
+}
+
+.chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 500px;
+  background-color: burlywood;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
