@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Button } from "./Button";
 import { EventListener } from "./EventListener";
+import { Playground } from "./Playground";
 
 const root = document.getElementById("react-root");
 if (root) {
@@ -11,6 +12,7 @@ if (root) {
         <h1>This is React Component</h1>
         <Button />
         <EventListener />
+        <Playground />
       </div>
     </StrictMode>,
   );
