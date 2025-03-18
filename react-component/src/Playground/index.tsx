@@ -1,5 +1,5 @@
-import { DndContext } from "@dnd-kit/core";
 import { useState } from "react";
+import { DnDContainer } from "../Dnd/DnDContainer";
 import { Draggable } from "../Dnd/Draggable";
 import styles from "./index.module.css";
 
@@ -17,7 +17,7 @@ export function Playground() {
     <div>
       <h1 className="text-gray-700">Playground</h1>
       <div>
-        <DndContext
+        <DnDContainer
           onDragEnd={({ delta }) => {
             setCoordinates(({ x, y }) => {
               return {
@@ -28,7 +28,7 @@ export function Playground() {
           }}
         >
           <DragItem coordinate={coordinates} />
-        </DndContext>
+        </DnDContainer>
       </div>
     </div>
   );
@@ -39,28 +39,20 @@ type Props = {
 };
 
 function DragItem({ coordinate: { x, y } }: Props) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
-    <>
-      <Draggable x={x} y={y}>
-        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-        {/* biome-ignore lint/a11y/useFocusableInteractive: <explanation> */}
-        <div
-          // biome-ignore lint/a11y/useSemanticElements: <explanation>
-          role="button"
-          onMouseDown={(e) => e.stopPropagation()}
-          onClick={(e) => {
-            e.preventDefault();
-            alert("button clicked");
-            setOpen(true);
-          }}
-          className={styles.square}
-        >
-          Drag Me2
-        </div>
-        {open && <ChatWindow />}
-      </Draggable>
-    </>
+    <Draggable x={x} y={y}>
+      <button
+        type="button"
+        onClick={() => {
+          setOpen((prev) => !prev);
+        }}
+        className={styles.square}
+      >
+        Chat icon
+      </button>
+      {open && <ChatWindow />}
+    </Draggable>
   );
 }
 
